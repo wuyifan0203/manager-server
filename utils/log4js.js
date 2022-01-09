@@ -7,7 +7,7 @@ const levels = {
     warn:log4js.levels.WARN,
     error:log4js.levels.ERROR,
     fatal:log4js.levels.FATAL,
-}
+};
 log4js.configure({
     appenders: {
          console: { type: "console"} ,
@@ -36,19 +36,19 @@ log4js.configure({
             level: "info" 
         } 
     }
-})
+});
 exports.debug = (content) =>{
     let logger = log4js.getLogger('debug');
     logger.level = levels.debug;
     logger.debug(content);
-}
+};
 exports.error = (content) =>{
     let logger = log4js.getLogger('error');
     logger.level = levels.error;
     logger.error(content);
-}
+};
 exports.info = (content) =>{
     let logger = log4js.getLogger('info');
     logger.level = levels.info;
     logger.info(content);
-}
+};

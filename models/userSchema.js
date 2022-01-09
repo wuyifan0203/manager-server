@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema({
     },
     "mobile": String,
     remark:String
-})
+});
 
 module.exports = mongoose.model('users',userSchema,"users");
 //代码中名字，表对象，实际表名
