@@ -39,8 +39,9 @@ app.use(async (ctx, next) => {
   }
   
   await next().catch((err)=>{
-    if(err.status === 401){
-      ctx.stale = 200;
+    console.log(err);
+    if(err.status == 401){
+      ctx.status  = 200;
       ctx.body = utils.fail('Token authentication failure',utils.CODE.AUTH_ERROR);
     }else{
       throw err;
@@ -51,7 +52,7 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-app.use(koajwt({priviteKey}).unless({
+app.use(koajwt({secret: priviteKey}).unless({
   path:[
     '/api/users/login',
     '/api/login',
