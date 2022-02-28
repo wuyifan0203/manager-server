@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
         default:1
     },//1：在职，2：离职，3：试用期
     "roleList":[],//系统角色
+    "role":Number,
     "createTime":{
         type:Date,
         default:Date.now()
