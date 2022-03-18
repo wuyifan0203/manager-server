@@ -126,9 +126,8 @@ router.post('/operate', async (ctx) => {
 router.post('/delete', async (ctx) => {
   const {userIds} = ctx.request.body;
   const res = await user.updateMany({ userId: { $in: userIds } }, { state: 2 });
-  console.log(res);
-  if (res.nModified) {
-    ctx.body = utils.success(res, `共删除成功${res.nModified}条`);
+  if (res.modifiedCount) {
+    ctx.body = utils.success(res, `共删除成功${res.modifiedCount}条`);
     return;
   }
   ctx.body = utils.fail('删除失败');
