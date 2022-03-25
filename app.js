@@ -15,6 +15,7 @@ const utils = require('./utils/erroCode');
 
 // const index = require('./routes/index')
 const users = require('./routes/users');
+const menus = require('./routes/menus');
 
 // error handler
 onerror(app);
@@ -63,6 +64,7 @@ app.use(koajwt({secret: priviteKey}).unless({
 // routes
 router.prefix('/api');
 router.use(users.routes(), users.allowedMethods());
+router.use(menus.routes(), menus.allowedMethods());
 // app.use(index.routes(), index.allowedMethods())
 app.use(router.routes(),router.allowedMethods());
 
